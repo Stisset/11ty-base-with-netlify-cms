@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Company Name</title>
+    <link rel="stylesheet" href="/style.css">
+     <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather&family=Varela&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/4343ac158c.js" crossorigin="anonymous"></script>
+    <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+</head>
+<body>
+
+    <header>
+    <div class="hdr-container">
+        <div class="hdr-title">
+            <h2>Company name</h2>
+        </div>
+        <nav>
+            <ul class="nav-list">
+                <li><a class="nav-link" href="#">Home</a></li>
+                <li><a class="nav-link" href="#">About</a></li>
+                <li><a class="nav-link" href="#">Contact</a></li>
+            </ul>
+            <div class="burger">
+                <div class="line1"></div>
+                <div class="line2"></div>
+                <div class="line3"></div>
+            </div>
+        </nav>
+    </div>
+</header>
+    <main>
+    <section>
+    <h1>Heading</h1>
+    <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+        Minima laudantium nostrum, suscipit quaerat ex ipsum saepe 
+        aut animi facere error alias. Voluptatibus delectus debitis ipsum!
+    </p><li>
+  <article>
+    <img src="/assets/uploads/" alt="alt text">
+    <h3>Test article</h3>
+    <p>by <span>John Doe</span> on <span>25 nov. 2021</span></p>
+    <p>This is a test upload</p>
+    <a href="/uploads/2021-11-25-test-article/">Keep reading!</a>
+  </article>
+</li></section>
+    </main>
+    <footer>
+    <div class="ftr-container">
+        <div class="social-div">
+            <ul class="social-list">
+                <li><a href="#" class="social-link"><i class="fab fa-facebook-square fa-2x"></i></a></li>
+                <li><a href="#" class="social-link"><i class="fab fa-instagram fa-2x"></i></a></li>
+                <li><a href="#" class="social-link"><i class="fab fa-twitter-square fa-2x"></i></a></li>
+            </ul>
+        </div>
+        <div class="ftr-div">
+            <p>© 2021 Company name. All rights reserved.</p>
+        </div>
+    </div>
+</footer>
+
+<script>
+    // Admin panel
+  if (window.netlifyIdentity) {
+    window.netlifyIdentity.on("init", user => {
+      if (!user) {
+        window.netlifyIdentity.on("login", () => {
+          document.location.href = "/admin/";
+        });
+      }
+    });
+  }
+</script>
+
+<script>
+  const navSlide = () => {
+  const burger = document.querySelector('.burger');
+  const nav = document.querySelector('.nav-list');
+  const navLinks = document.querySelectorAll('.nav-link')
+
+  burger.addEventListener ('click',()=>{
+     // Toggle nav
+    nav.classList.toggle('nav-active');
+
+      // Animate Links
+    navLinks.forEach((link, index) => {
+      if (link.style.animation) {
+        link.style.animation = ''
+      } else {
+        link.style.animation = `navLinkFade 0.5s ease forwards ${index / 7 + 0.7}s`;
+      }
+    });
+    // Burger animation
+    burger.classList.toggle('toggle');
+
+  });
+}
+navSlide();
+</script>
+</body>
+</html>
