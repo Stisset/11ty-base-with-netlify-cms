@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{ title }}</title>
     <link rel="stylesheet" href="/style.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
+     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Merriweather&family=Varela&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/4343ac158c.js" crossorigin="anonymous"></script>
@@ -15,7 +15,9 @@
 <body>
 
     {% include 'header.njk' %}
+    <main>
     {{ content | safe }}
+    </main>
     {% include 'footer.njk' %}
 
 <script>
@@ -32,21 +34,29 @@
 </script>
 
 <script>
-const menuBtn = document.getElementById('menu');
-const sidebar = document.getElementById('sidebar');
+  const navSlide = () => {
+  const burger = document.querySelector('.burger');
+  const nav = document.querySelector('.nav-list');
+  const navLinks = document.querySelectorAll('.nav-link')
 
-menuBtn.onclick = function () {
-  menuBtn.classList.toggle ('active');
-  sidebar.classList.toggle ('active');
-};
+  burger.addEventListener ('click',()=>{
+     // Toggle nav
+    nav.classList.toggle('nav-active');
 
-window.document.onclick = function (e) {
-  if (e.target.id !== ('menu') && e.target.id !== ('sidebar'))
-  {
-    menuBtn.classList.remove ('active');
-    sidebar.classList.remove ('active');
-  }
+      // Animate Links
+    navLinks.forEach((link, index) => {
+      if (link.style.animation) {
+        link.style.animation = ''
+      } else {
+        link.style.animation = `navLinkFade 0.5s ease forwards ${index / 7 + 0.7}s`;
+      }
+    });
+    // Burger animation
+    burger.classList.toggle('toggle');
+
+  });
 }
+navSlide();
 </script>
 </body>
 </html>

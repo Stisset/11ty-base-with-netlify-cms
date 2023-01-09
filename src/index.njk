@@ -1,78 +1,15 @@
 ---
-title: Nordpex
-layout: "home-base.njk"
+title: Company Name
+layout: 'base.njk'
 ---
-
 <section>
-  <main>
-    <h1 class="text-c mb-1-5 main-heading">
-      Welcome to the Nordpex ARK server Website
-    </h1>
-    <h2 class="text-c mb-1-5">Wipe in <span id="wipe"></span></h2>
-    <div class="disc-card card mb-1-5">
-      <iframe
-      class="discord"
-      src="https://discord.com/widget?id=1054048534627889152&theme=dark"
-      width="350"
-      height="500"
-      allowtransparency="true"
-      frameborder="0"
-      sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"
-    ></iframe>
-      <div class="disc">
-        <a class="disc-link" href="https://discord.gg/7aEtBWXTga">Discord invite link</a>
-        <p class="mb-1">https://discord.gg/7aEtBWXTga</p>
-        <p class="disc-body">
-          In the Discord you can discuss general things or report bugs/cheating etc.
-        </p>
-        <p class="disc-body">
-          File complaints and or critique on the server/settings,
-          start a discussion for possible changes.
-        </p>
-        <p class="disc-body">
-          Link up with members from other tribes or your own in voice chat.
-        </p>
-      </div>
-    </div>
-    <div class="card">
-      <h2 class="text-c mb-1-5">
-        In this section you can find news regarding the server
-      </h3>
-      <ul class="news">
-      {%- for post in collections.post | reverse -%} {% include
-      'article-snippet.njk' %} {%- endfor -%}
-      </ul>
-    </div>
-  </main>
+    <h1>Heading</h1>
+    <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+        Minima laudantium nostrum, suscipit quaerat ex ipsum saepe 
+        aut animi facere error alias. Voluptatibus delectus debitis ipsum!
+    </p>
+    {%- for post in collections.post | reverse -%}
+      {% include 'article-snippet.njk' %}
+    {%- endfor -%}
 </section>
-
-<script>
-  // Set the date we're counting down to
-  var countDownDate = new Date("Feb 17, 2023 13:00:00").getTime();
-  
-  // Update the count down every 1 second
-  var x = setInterval(function() {
-  
-    // Get today's date and time
-    var now = new Date().getTime();
-  
-    // Find the distance between now and the count down date
-    var distance = countDownDate - now;
-  
-    // Time calculations for days, hours, minutes and seconds
-    var days = Math.floor(distance / (1000 * 60 * 60 * 24));
-    var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-    var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-    var seconds = Math.floor((distance % (1000 * 60)) / 1000);
-  
-    // Display the result in the element with id="wipe"
-    document.getElementById("wipe").innerHTML = days + "d " + hours + "h "
-    + minutes + "m " + seconds + "s ";
-  
-    // If the count down is finished, write some text
-    if (distance < 0) {
-      clearInterval(x);
-      document.getElementById("wipe").innerHTML = "the making!";
-    }
-  }, 1000);
-  </script>
