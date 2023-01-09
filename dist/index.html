@@ -4,52 +4,115 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Company Name</title>
+    <title>Nordpex</title>
     <link rel="stylesheet" href="/style.css">
-     <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Merriweather&family=Varela&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/4343ac158c.js" crossorigin="anonymous"></script>
     <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
 </head>
 <body>
-
+    <img class="home-wallpaper" src="/assets/fjordur-wallpaper.jfif" alt="Background">
     <header>
-    <div class="hdr-container">
-        <div class="hdr-title">
-            <h2>Company name</h2>
-        </div>
-        <nav>
-            <ul class="nav-list">
-                <li><a class="nav-link" href="#">Home</a></li>
-                <li><a class="nav-link" href="#">About</a></li>
-                <li><a class="nav-link" href="#">Contact</a></li>
-            </ul>
-            <div class="burger">
-                <div class="line1"></div>
-                <div class="line2"></div>
-                <div class="line3"></div>
-            </div>
-        </nav>
+  <div class="hdr-container">
+    <div class="hdr-title">
+      <a href="/">Nordpex</a>
+    </div>
+    <div class="stroke-line"></div>
+    <nav>
+      <div id="menu"></div>
+      <div id="sidebar">
+        <ul class="sidebar-list">
+          <li><a href="/" class="sidebar-link">Home</a></li>
+          <li class="menu-catagory">ARK</li>
+          <li><a href=".././server-rules" class="sidebar-link">Rules</a></li>
+          <li><a href=".././server-settings" class="sidebar-link">Server Settings</a></li>
+        </ul>
+      </div>
+    </nav>
     </div>
 </header>
-    <main>
-    <section>
-    <h1>Heading</h1>
-    <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-        Minima laudantium nostrum, suscipit quaerat ex ipsum saepe 
-        aut animi facere error alias. Voluptatibus delectus debitis ipsum!
-    </p><li>
+
+    
+<section>
+  <main>
+    <h1 class="text-c mb-1-5 main-heading">
+      Welcome to the Nordpex ARK server Website
+    </h1>
+    <h2 class="text-c mb-1-5">Wipe in <span id="wipe"></span></h2>
+    <div class="disc-card card mb-1-5">
+      <iframe
+      class="discord"
+      src="https://discord.com/widget?id=1054048534627889152&theme=dark"
+      width="350"
+      height="500"
+      allowtransparency="true"
+      frameborder="0"
+      sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"
+    ></iframe>
+      <div class="disc">
+        <a class="disc-link" href="https://discord.gg/7aEtBWXTga">Discord invite link</a>
+        <p class="mb-1">https://discord.gg/7aEtBWXTga</p>
+        <p class="disc-body">
+          In the Discord you can discuss general things or report bugs/cheating etc.
+        </p>
+        <p class="disc-body">
+          File complaints and or critique on the server/settings,
+          start a discussion for possible changes.
+        </p>
+        <p class="disc-body">
+          Link up with members from other tribes or your own in voice chat.
+        </p>
+      </div>
+    </div>
+    <div class="card">
+      <h2 class="text-c mb-1-5">
+        In this section you can find news regarding the server
+      </h3>
+      <ul class="news"><li>
   <article>
-    <img src="/assets/uploads/" alt="alt text">
     <h3>Test article</h3>
     <p>by <span>John Doe</span> on <span>25 nov. 2021</span></p>
     <p>This is a test upload</p>
     <a href="/uploads/2021-11-25-test-article/">Keep reading!</a>
   </article>
-</li></section>
-    </main>
+</li></ul>
+    </div>
+  </main>
+</section>
+
+<script>
+  // Set the date we're counting down to
+  var countDownDate = new Date("Feb 17, 2023 13:00:00").getTime();
+  
+  // Update the count down every 1 second
+  var x = setInterval(function() {
+  
+    // Get today's date and time
+    var now = new Date().getTime();
+  
+    // Find the distance between now and the count down date
+    var distance = countDownDate - now;
+  
+    // Time calculations for days, hours, minutes and seconds
+    var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+    var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+    var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+  
+    // Display the result in the element with id="wipe"
+    document.getElementById("wipe").innerHTML = days + "d " + hours + "h "
+    + minutes + "m " + seconds + "s ";
+  
+    // If the count down is finished, write some text
+    if (distance < 0) {
+      clearInterval(x);
+      document.getElementById("wipe").innerHTML = "the making!";
+    }
+  }, 1000);
+  </script>
+
     <footer>
     <div class="ftr-container">
         <div class="social-div">
@@ -60,7 +123,7 @@
             </ul>
         </div>
         <div class="ftr-div">
-            <p>© 2021 Company name. All rights reserved.</p>
+            <p>© 2023 Nordpex ARK Server. All rights reserved.</p>
         </div>
     </div>
 </footer>
@@ -79,29 +142,21 @@
 </script>
 
 <script>
-  const navSlide = () => {
-  const burger = document.querySelector('.burger');
-  const nav = document.querySelector('.nav-list');
-  const navLinks = document.querySelectorAll('.nav-link')
+const menuBtn = document.getElementById('menu');
+const sidebar = document.getElementById('sidebar');
 
-  burger.addEventListener ('click',()=>{
-     // Toggle nav
-    nav.classList.toggle('nav-active');
+menuBtn.onclick = function () {
+  menuBtn.classList.toggle ('active');
+  sidebar.classList.toggle ('active');
+};
 
-      // Animate Links
-    navLinks.forEach((link, index) => {
-      if (link.style.animation) {
-        link.style.animation = ''
-      } else {
-        link.style.animation = `navLinkFade 0.5s ease forwards ${index / 7 + 0.7}s`;
-      }
-    });
-    // Burger animation
-    burger.classList.toggle('toggle');
-
-  });
+window.document.onclick = function (e) {
+  if (e.target.id !== ('menu') && e.target.id !== ('sidebar'))
+  {
+    menuBtn.classList.remove ('active');
+    sidebar.classList.remove ('active');
+  }
 }
-navSlide();
 </script>
 </body>
 </html>

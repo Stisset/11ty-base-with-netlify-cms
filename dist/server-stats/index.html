@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nordpex</title>
+    <link rel="stylesheet" href="/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather&family=Varela&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/4343ac158c.js" crossorigin="anonymous"></script>
+    <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+</head>
+<body>
+
+    <header>
+  <div class="hdr-container">
+    <div class="hdr-title">
+      <a href="/">Nordpex</a>
+    </div>
+    <div class="stroke-line"></div>
+    <nav>
+      <div id="menu"></div>
+      <div id="sidebar">
+        <ul class="sidebar-list">
+          <li><a href="#" class="sidebar-link">Home</a></li>
+          <li class="menu-catagory">Discord</li>
+          <li><a href="#" class="sidebar-link">Rules</a></li>
+          <li class="menu-catagory">ARK</li>
+          <li><a href="./server-rules" class="sidebar-link">Rules</a></li>
+          <li><a href="./server-settings" class="sidebar-link">Server Settings</a></li>
+          <li><a href="#" class="sidebar-link">Wipe</a></li>
+        </ul>
+      </div>
+    </nav>
+    </div>
+</header>
+
+    
+<section>
+  <main>
+    <div class="card">
+      
+    </div>
+  </main>
+</section>
+    <footer>
+    <div class="ftr-container">
+        <div class="social-div">
+            <ul class="social-list">
+                <li><a href="#" class="social-link"><i class="fab fa-facebook-square fa-2x"></i></a></li>
+                <li><a href="#" class="social-link"><i class="fab fa-instagram fa-2x"></i></a></li>
+                <li><a href="#" class="social-link"><i class="fab fa-twitter-square fa-2x"></i></a></li>
+            </ul>
+        </div>
+        <div class="ftr-div">
+            <p>© 2023 Nordpex ARK Server. All rights reserved.</p>
+        </div>
+    </div>
+</footer>
+
+<script>
+    // Admin panel
+  if (window.netlifyIdentity) {
+    window.netlifyIdentity.on("init", user => {
+      if (!user) {
+        window.netlifyIdentity.on("login", () => {
+          document.location.href = "/admin/";
+        });
+      }
+    });
+  }
+</script>
+
+<script>
+const menuBtn = document.getElementById('menu');
+const sidebar = document.getElementById('sidebar');
+
+menuBtn.onclick = function () {
+  menuBtn.classList.toggle ('active');
+  sidebar.classList.toggle ('active');
+};
+
+window.document.onclick = function (e) {
+  if (e.target.id !== ('menu') && e.target.id !== ('sidebar'))
+  {
+    menuBtn.classList.remove ('active');
+    sidebar.classList.remove ('active');
+  }
+}
+</script>
+</body>
+</html>
